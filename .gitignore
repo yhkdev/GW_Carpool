@@ -8,4 +8,4 @@ db.sqlite3
 venv
 /static
 .vscode
-DS_Store
+.DS_Store
