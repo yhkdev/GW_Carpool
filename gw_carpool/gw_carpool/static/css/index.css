@@ -1,0 +1,214 @@
+.bg-gw {
+    --bs-bg-opacity: 1;
+    background-color: #0B3B5D !important;
+}
+
+h1, h2, h3 {
+    color : #0B3B5D !important;
+}
+
+body {
+    background-color: #F2F7FA;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh;
+    overflow: auto !important;
+}
+
+@media screen and (max-width: 1199.98px) {
+    body {
+        min-height: 150vh;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        min-height: 100vh;
+    }
+}
+
+#container {
+    flex: 1;
+}
+
+input.form-control {
+
+    font-size: 1.077rem;
+    padding: 0.923077rem 1.307rem;
+    height: 3.23077rem;
+
+    border: 1px solid #CED4DA;
+    border-radius: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+
+input.form-control:focus {
+
+    color: #495057;
+    background-color: #FFFFFF;
+
+    border-color: #40A1E2;
+    border-width: 2px;
+    outline: 0;
+    box-shadow: 0 0 0 0 transparent;
+
+}
+
+.slogan {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #51B849;
+}
+
+label {
+    font-size: 1.1rem;
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    background-color: #0B3B5D;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer a {
+
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    .footer-logo {
+        text-align:right;
+    }
+
+}
+
+.address {
+    font-size: 12px;
+}
+
+@media screen and (min-width: 1200px) {
+
+    .address {
+        text-align:left;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+
+    #riderSignUpForm h2 {
+        margin-left: 12.5%;
+    }
+
+    #customerSignUpForm h2 {
+        margin-left: 12.5%;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    #riderSignUpForm h2 {
+        margin-left: 30%;
+    }
+
+    #customerSignUpForm h2 {
+        margin-left: 30%;
+    }
+
+}
+
+.inputfile {
+    width: 0.1px !important;
+    height: 0.1px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: -1 !important;
+}
+
+.inputfile+label {
+    padding: 0.81rem 0.7692rem !important;
+    display: inline-block !important;
+    cursor: pointer !important;
+}
+
+.inputfile+label i {
+    margin-right: 10px;
+}
+
+.custom-select {
+
+    display: inline-block;
+    width: 100%;
+    height: 3.23077rem;
+    padding: 0.923077rem 2.307rem 0.923077rem 1.307rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #495057;
+    vertical-align: middle;
+    background-color: #FFFFFF;
+    border: 1px solid #CED4DA;
+    border-radius: 0;
+    appearance: none;
+
+}
+
+.custom-select option {
+    font-weight: bold !important;
+}
+
+nav .dropdown-menu:before {
+
+    border-bottom: 8px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: -8px;
+    content: "";
+    display: inline-block;
+    left: 42px;
+    margin-left: -6px;
+    position: absolute;
+
+}
+
+nav ul li {
+    color: #FAFCFC !important;
+}
+
+@media screen and (min-width: 1200px) {
+
+    #myNavbarHeading {
+        margin-left: 35%;
+        margin-right: 3%;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199.98px) {
+
+    #myNavbarHeading {
+        margin-left: 20%;
+    }
+
+}
+
+nav .dropdown-menu:after {
+
+    left: auto;
+    right: 13px;
+    border-bottom-color: #3498DB;
+
+}

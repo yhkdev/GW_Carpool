@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>The George Washington University</title>
+
+        <link rel="icon" type="image/png" sizes="16x16" href="images/gw_logo.ico">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://kit.fontawesome.com/b3c219595d.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/calendar.css">
+        <link rel="stylesheet" href="lib/fullcalendar/main.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+        <script type="text/javascript" src="lib/fullcalendar/main.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/calendar.js"></script>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-gw">
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand p-2" href="#">
+                    <img src="images/gw_logo.png" alt="George Washington University" style="width:40px;">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="m-1 collapse navbar-collapse" id="myNavbar">
+
+                    <div id="myNavbarHeading">
+                        <h3 style="color: #FAFCFC !important;">GWU Carpool</h3>
+                    </div>
+
+                    <form class="d-flex ms-auto m-1 me-lg-4">
+                        <input class="form-control form-control-sm" type="text" placeholder="Search">
+                        <button class="btn btn-success btn-sm" type="button">Search</button>
+                    </form>
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Schedule</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Account</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">
+                                <span class="fas fa-arrow-right-from-bracket"></span>&nbsp;Logout
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <main id="container">
+
+            <div class="container-fluid mt-5">
+
+                <div class="row g-0">
+
+                    <div class="col-md-1 col-lg-3"></div>
+
+                    <div class="col-md-10 col-lg-6 border bg-light mt-5 px-md-3 py-md-5">
+
+                        <div class="container-fluid">
+
+                            <div class="row d-flex justify-content-center mt-2 mb-5">
+                                <h2 class="d-flex justify-content-center">Edit schedule</h2>
+                            </div>
+
+                            <form action="#" id="eventForm">
+
+                                <div class="form-group row my-2">
+
+                                    <label class="col-12 col-sm-3 p-2 font-weight-bold d-md-flex justify-content-end">
+                                        Route:
+                                    </label>
+
+                                    <div class="col-12 col-sm-8 col-lg-7">
+
+                                        <select class="custom-select p-3" name="event_route">
+                                            <option value="1">GWU  -> Home</option>
+                                            <option value="2" selected>Home -> GWU</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row my-2">
+
+                                    <label class="col-12 col-sm-3 p-2 font-weight-bold d-md-flex justify-content-end">
+                                        Date:
+                                    </label>
+
+                                    <div class="col-12 col-sm-8 col-lg-7">
+
+                                        <input type="date"
+                                               name="event_date"
+                                               value="2022-03-26"
+                                               class="form-control mt-1"
+                                               placeholder="2022-03-25"
+                                               autocomplete="off"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row my-2">
+
+                                    <label class="col-12 col-sm-3 p-2 font-weight-bold d-md-flex justify-content-end">
+                                        Time:
+                                    </label>
+
+                                    <div class="col-12 col-sm-8 col-lg-7">
+
+                                        <input type="time"
+                                               name="event_time"
+                                               class="form-control mt-1"
+                                               value="13:37"
+                                               placeholder="13:37"
+                                               autocomplete="off"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+                                <div class="d-flex justify-content-center my-2">
+
+                                    <div class="p-1">
+                                        <button type="submit" class="btn btn-success" id="saveEventButton">Save</button>
+                                    </div>
+
+                                    <div class="p-1">
+                                        <button type="submit" class="btn btn-danger">Cancel</button>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-1 col-lg-3"></div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="footer">
+
+            <div class="container-fluid p-5">
+
+                <div class="row g-0">
+
+                    <div class="col-md-2"></div>
+
+                    <div class="col-md-4 p-2 footer-logo">
+
+                        <div>
+                            <img src="images/footer_logo.png" style="width: 79px; height: auto">
+                        </div>
+
+                        <div class="my-2">
+                            <a href="index.html">www.gwu.edu</a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 p-2 address">
+
+                        <span>The George Washington University</span>
+
+                        <br>
+
+                        <div>
+
+                            <span>1918 F Street, NW</span>
+                            <br>
+                            <span>Washington</span>
+                            <span>DC</span>
+                            <span>20052</span>
+
+                        </div>
+
+                        <span>202-994-1000</span>
+
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+#calendar {
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+#calendar th.fc-timeline-slot a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+#calendar th.fc-col-header-cell a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+#calendar a.fc-daygrid-day-number {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+body {
+    background-color: white !important;
+}

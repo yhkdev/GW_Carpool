@@ -1,5 +1,409 @@
-{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Signup as a Driver</h1>
+    <head>
 
-{% endblock %}
+        <meta charset="UTF-8">
+        <title>The George Washington University</title>
+
+        <link rel="icon" type="image/png" sizes="16x16" href="images/gw_logo.ico">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://kit.fontawesome.com/b3c219595d.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+        <script type="text/javascript" src="js/index.js"></script>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-dark bg-gw">
+
+            <div class="col-3"></div>
+
+            <div class="col-6 d-flex justify-content-center">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/gw_logo.png" alt="George Washington University" style="width:40px;">
+                </a>
+            </div>
+
+            <div class="col-3"></div>
+
+        </nav>
+
+        <main id="container">
+
+            <div class="container mt-5">
+
+                <form action="#" id="riderSignUpForm">
+
+                    <h2 class="justify-content-center" style="display: inline-block;vertical-align: middle;">You are a step away to drive&nbsp;
+                        <img src="images/car.png" style="width: 96px; height: 96px;vertical-align: middle;">
+                    </h2>
+
+                    <div class="row">
+
+                        <div class="col-lg-3"></div>
+
+                        <div class="col-lg-6 border mt-2 p-4 bg-light">
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="firstname">Firstname</label>
+                                <input type="text"
+                                       name="rsu_firstname"
+                                       class="form-control mt-1"
+                                       id="firstname"
+                                       placeholder="James"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="lastname">Lastname</label>
+                                <input type="text"
+                                       name="rsu_lastname"
+                                       class="form-control mt-1"
+                                       id="lastname"
+                                       placeholder="Webb"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="dateofbirth">Date of birth</label>
+                                <input type="date"
+                                       name="rsu_dob"
+                                       class="form-control mt-1"
+                                       id="dateofbirth"
+                                       placeholder="200 52"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="mobile">Mobile</label>
+                                <input type="text"
+                                       name="rsu_mobile"
+                                       class="form-control mt-1"
+                                       id="mobile"
+                                       placeholder="202-994-1000"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="email">Email</label>
+                                <input type="email"
+                                       name="rsu_email"
+                                       class="form-control mt-1"
+                                       id="email"
+                                       placeholder="james.webb@gwmail.gwu.edu"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="password">Password</label>
+                                <input type="password"
+                                       name="rsu_password"
+                                       class="form-control mt-1"
+                                       id="password"
+                                       placeholder="Enter password"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="address1">Address line 1</label>
+                                <input type="text"
+                                       name="rsu_address1"
+                                       class="form-control mt-1"
+                                       id="address1"
+                                       placeholder="H.No"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="address2">Address line 2</label>
+                                <input type="text"
+                                       name="rsu_address2"
+                                       class="form-control mt-1"
+                                       id="address2"
+                                       placeholder="1918 F Street"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="city">City</label>
+                                <input type="text"
+                                       name="rsu_city"
+                                       class="form-control mt-1"
+                                       id="city"
+                                       placeholder="Washington DC"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="state">State / Province / Region</label>
+                                <input type="text"
+                                       name="rsu_state"
+                                       class="form-control mt-1"
+                                       id="state"
+                                       placeholder="Washington"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="zip">Postal Code</label>
+                                <input type="text"
+                                       name="rsu_zip"
+                                       class="form-control mt-1"
+                                       id="zip"
+                                       placeholder="200 52"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="license">License</label>
+                                <input type="text"
+                                       name="rsu_license"
+                                       class="form-control mt-1"
+                                       id="license"
+                                       placeholder="0123456789"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="dateofissue">Date of issue</label>
+                                <input type="date"
+                                       name="rsu_doi"
+                                       class="form-control mt-1"
+                                       id="dateofissue"
+                                       placeholder="2022-03-12"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="dateofexpiry">Date of expiry</label>
+                                <input type="date"
+                                       name="rsu_doe"
+                                       class="form-control mt-1"
+                                       id="dateofexpiry"
+                                       placeholder="2032-03-12"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-3 d-flex justify-content-center border-bottom">
+                                <h3 class="p-2">Vehicle Registration Form</h3>
+                            </div>
+
+                            <div class="my-3">
+
+                                <label class="font-weight-bold mb-2">
+                                    Upload a picture of your driving license
+                                </label>
+
+                                <input type="file"
+                                       class="inputfile"
+                                       name="file-2"
+                                       id="file-2"
+                                       data-multiple-caption="{count} files selected"
+                                >
+                                <label class="btn btn-primary" style="width: 100%;" for="file-2">
+                                    <i class="fa fa-solid fa-upload"></i>
+                                    <span>&nbsp;Browse files...</span>
+                                </label>
+
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="vehicle">Vehicle</label>
+                                <input type="text"
+                                       name="vsu_vehicle"
+                                       class="form-control mt-1"
+                                       id="vehicle"
+                                       placeholder="SUV, Sedan"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="vehiclename">Name</label>
+                                <input type="text"
+                                       name="vsu_name"
+                                       class="form-control mt-1"
+                                       id="vehiclename"
+                                       placeholder="Volvo"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="vehiclemodel">Make / Model</label>
+                                <input type="text"
+                                       name="vsu_model"
+                                       class="form-control mt-1"
+                                       id="vehiclemodel"
+                                       placeholder="XC90"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="vehiclemanufacturedyear">Year</label>
+                                <input type="date"
+                                       name="vsu_year"
+                                       class="form-control mt-1"
+                                       id="vehiclemanufacturedyear"
+                                       placeholder="2022-03-12"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="vehiclecolor">Color</label>
+                                <input type="color"
+                                       name="vsu_color"
+                                       class="form-control mt-1"
+                                       id="vehiclecolor"
+                                       placeholder="white"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="vehicleowner">Vehicle owner</label>
+                                <input type="text"
+                                       name="vsu_owner"
+                                       class="form-control mt-1"
+                                       id="vehicleowner"
+                                       placeholder="James Webb"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-2">
+                                <label class="font-weight-bold" for="vehicleownermobile">Mobile</label>
+                                <input type="text"
+                                       name="vsu_mobile"
+                                       class="form-control mt-1"
+                                       id="vehicleownermobile"
+                                       placeholder="0123456789"
+                                       autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="my-3">
+
+                                <label class="font-weight-bold mb-2">
+                                    Upload a picture of your car
+                                </label>
+
+                                <input type="file"
+                                       class="inputfile"
+                                       name="file-3"
+                                       id="file-3"
+                                       data-multiple-caption="{count} files selected"
+                                >
+                                <label class="btn btn-primary" style="width: 100%;" for="file-3">
+                                    <i class="fa fa-solid fa-upload"></i>
+                                    <span>&nbsp;Browse files (.png, .jpg)...</span>
+                                </label>
+
+                            </div>
+
+                            <div class="d-flex">
+                                <button type="submit" class="btn mt-4 btn-success flex-fill" id="riderSignUpButton">
+                                    Submit
+                                </button>
+                            </div>
+
+                            <div class="mt-3 alert alert-success d-none" id="signInAlert">
+                                You will be re-directed to home page shortly
+                            </div>
+
+                            <div class="mt-3 alert alert-danger d-none" id="emailAlert">
+                                <strong>Please enter a valid email !</strong> Ex: james@gwmail.gwu.edu
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3"></div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </main>
+
+        <footer class="footer">
+
+            <div class="container-fluid p-5">
+
+                <div class="row g-0">
+
+                    <div class="col-md-2"></div>
+
+                    <div class="col-md-4 p-2 footer-logo">
+
+                        <div>
+                            <img src="images/footer_logo.png" style="width: 79px; height: auto">
+                        </div>
+
+                        <div class="my-2">
+                            <a href="index.html">www.gwu.edu</a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 p-2 address">
+
+                        <span>The George Washington University</span>
+
+                        <br>
+
+                        <div>
+
+                            <span>1918 F Street, NW</span>
+                            <br>
+                            <span>Washington</span>
+                            <span>DC</span>
+                            <span>20052</span>
+
+                        </div>
+
+                        <span>202-994-1000</span>
+
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </body>
+
+</html>

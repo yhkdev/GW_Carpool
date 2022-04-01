@@ -2,6 +2,181 @@
 
 {% block content %}
 
-<h1>Home</h1>
+    <body>
+
+        <nav class="navbar navbar-dark bg-gw">
+
+            <div class="container-fluid">
+
+                <div>
+                    <a class="navbar-brand" href="#">
+                        <img src="images/gw_logo.png" alt="George Washington University" style="width:40px;">
+                    </a>
+                </div>
+
+                <div class="d-flex flex-row">
+
+                    <div class="m-2">
+
+                        <div class="dropdown">
+
+                            <button type="button" class="btn btn-primary dropdown-toggle mb-3" data-bs-toggle="dropdown">
+                                Sign Up
+                            </button>
+
+                            <ul class="dropdown-menu p-2" style="width: 180px;">
+
+                                <li>
+                                    <button class="btn btn-success my-2" type="button" onclick="location.href='customersignup.html'" style="width: 100%;">
+                                        Sign Up to ride&nbsp;<i class="fa fa-solid fa-user"></i>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button class="btn btn-success my-2" type="button" onclick="location.href='ridersignup.html'" style="width: 100%;">
+                                        Sign Up to drive&nbsp;<i class="fa fa-solid fa-car"></i>
+                                    </button>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="m-2">
+
+                        <button class="btn btn-success" type="button" onclick="location.href='login.html'">
+                            Login&nbsp;<i class="fa fa-solid fa-arrow-right-to-bracket"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <main id="container">
+
+            <div class="container-fluid mt-5">
+
+                <div class="row g-0 mt-md-5 pt-5">
+
+                    <div class="col-md-4 my-2">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="images/friends.jpeg" class="rounded" style="max-width: 90%;max-height: 80%;">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-8 d-flex align-items-center fst-italic text-break">
+
+                        <div>
+
+                            <h1 class="text-center">
+                                Wondering what to do on a long and tiring journey to university by yourself?
+                            </h1>
+
+                            <h3 class="text-center">
+                                Here's a way to meet new people, develop new connections and most importanty, minimize your carbon footprint by occupying empty vehicle seats while simultaneously making long and exhausting rides enjoyable and interactive.
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row g-0 mt-md-5 pt-5">
+
+                    <div class="col-md-8 d-flex align-items-center fst-italic text-break">
+
+                        <div>
+
+                            <h1 class="text-center">
+                                Did you know ???
+                            </h1>
+
+                            <h3 class="text-center">
+                                Ridesharing service such as Uber or Lytt removes between 5.5 to 12.7 tons of greenhouse gas emissions per year and this contributed to the decrease of the total carbon dioxide emissions from cars by about 10% !!!
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 my-2">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="images/commute.png" style="max-width: 80%;max-height: 80%;">
+                        </div>
+
+                        <div class="slogan text-center">
+                            Reimagining affordable green commuting
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="footer">
+
+            <div class="container-fluid p-5">
+
+                <div class="row g-0">
+
+                    <div class="col-md-2"></div>
+
+                    <div class="col-md-4 p-2 footer-logo">
+
+                        <div>
+                            <img src="images/footer_logo.png" style="width: 79px; height: auto">
+                        </div>
+
+                        <div class="my-2">
+                            <a href="index.html">www.gwu.edu</a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 p-2 address">
+
+                        <span>The George Washington University</span>
+
+                        <br>
+
+                        <div>
+
+                            <span>1918 F Street, NW</span>
+                            <br>
+                            <span>Washington</span>
+                            <span>DC</span>
+                            <span>20052</span>
+
+                        </div>
+
+                        <span>202-994-1000</span>
+
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </body>
+
+</html>
+
 
 {% endblock %}
