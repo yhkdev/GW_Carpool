@@ -16,3 +16,15 @@ def signup_driver(request):
 
 def signup_rider(request):
     return render(request, 'pages/signup_rider.html')
+
+
+def event_list(request):
+    return render(request, 'pages/event_list.html')
+
+
+def event_edit(request):
+    return render(request, 'pages/event_edit.html')
+
+
+def event_new(request):
+    return render(request, 'pages/event_new.html')

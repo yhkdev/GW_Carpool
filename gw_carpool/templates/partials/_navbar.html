@@ -4,7 +4,7 @@
 <nav class="navbar navbar-dark bg-gw">
     <div class="container-fluid">
         <div>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'index' %}">
                 <img src="{% static 'images/gw_logo.png' %}" alt="George Washington University" style="width:40px;">
             </a>
         </div>
@@ -16,12 +16,12 @@
                     </button>
                     <ul class="dropdown-menu p-2" style="width: 180px;">
                         <li>
-                            <button class="btn btn-success my-2" type="button" onclick="location.href='customersignup.html'" style="width: 100%;">
+                            <button class="btn btn-success my-2" type="button" onclick="location.href='{% url 'signup_rider' %}'" style="width: 100%;">
                                 Sign Up to ride&nbsp;<i class="fa fa-solid fa-user"></i>
                             </button>
                         </li>
                         <li>
-                            <button class="btn btn-success my-2" type="button" onclick="location.href='ridersignup.html'" style="width: 100%;">
+                            <button class="btn btn-success my-2" type="button" onclick="location.href='{% url 'signup_driver' %}'" style="width: 100%;">
                                 Sign Up to drive&nbsp;<i class="fa fa-solid fa-car"></i>
                             </button>
                         </li>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="m-2">
-                <button class="btn btn-success" type="button" onclick="location.href='login.html'">
+                <button class="btn btn-success" type="button" onclick="location.href='{% url 'login' %}'">
                     Login&nbsp;<i class="fa fa-solid fa-arrow-right-to-bracket"></i>
                 </button>
             </div>
