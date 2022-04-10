@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %} 
 
-    <head>
-
-        <meta charset="UTF-8">
-        <title>The George Washington University</title>
-
-        <link rel="icon" type="image/png" sizes="16x16" href="images/gw_logo.ico">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-        <script src="https://kit.fontawesome.com/b3c219595d.js" crossorigin="anonymous"></script>
-
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/calendar.css">
-        <link rel="stylesheet" href="lib/fullcalendar/main.css"/>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
-        <script type="text/javascript" src="lib/fullcalendar/main.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/calendar.js"></script>
-
-    </head>
+{% block content %}
 
     <body>
 
@@ -179,54 +152,8 @@
 
         </main>
 
-        <footer class="footer">
-
-            <div class="container-fluid p-5">
-
-                <div class="row g-0">
-
-                    <div class="col-md-2"></div>
-
-                    <div class="col-md-4 p-2 footer-logo">
-
-                        <div>
-                            <img src="images/footer_logo.png" style="width: 79px; height: auto">
-                        </div>
-
-                        <div class="my-2">
-                            <a href="index.html">www.gwu.edu</a>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-4 p-2 address">
-
-                        <span>The George Washington University</span>
-
-                        <br>
-
-                        <div>
-
-                            <span>1918 F Street, NW</span>
-                            <br>
-                            <span>Washington</span>
-                            <span>DC</span>
-                            <span>20052</span>
-
-                        </div>
-
-                        <span>202-994-1000</span>
-
-                    </div>
-
-                    <div class="col-md-2"></div>
-
-                </div>
-
-            </div>
-
-        </footer>
-
     </body>
 
 </html>
+
+{% endblock %}

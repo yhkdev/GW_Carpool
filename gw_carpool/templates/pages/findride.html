@@ -1,0 +1,97 @@
+{% extends 'base_loggedin.html' %} 
+
+{% block content %}
+
+    <body>
+
+        <main id="container" class="p-2">
+
+            <div class="container-fluid">
+
+                <div class="row my-5">
+
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-10 px-3 px-lg-5">
+
+                        <div class="container my-5">
+
+                            <div class="row d-flex justify-content-center border-bottom pb-3">
+                                <h2 class="d-flex justify-content-center">Find a ride / rider</h2>
+                            </div>
+
+                            <div class="row g-0">
+
+                                <table class="table table-bordered table-hover my-5">
+
+                                    <thead class="table-primary">
+
+                                        <tr>
+                                            <th>Driver</th>
+                                            <th>Email</th>
+                                            <th>Distance away (in miles)</th>
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-link" href="javascript:void(0)">Sohila Manthena</a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-link" href="mailto:sohila.manethena@gwmail.gwu.edu">
+                                                    sohila.manethena@gwmail.gwu.edu
+                                                </a>
+                                            </td>
+                                            <td>2</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-link" href="javascript:void(0)">James Webb</a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-link" href="mailto:james.webb@gwmail.gwu.edu">
+                                                    james.webb@gwmail.gwu.edu
+                                                </a>
+                                            </td>
+                                            <td>12</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-link" href="javascript:void(0)">James Taylor</a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-link" href="mailto:james.taylor@gwmail.gwu.edu">
+                                                    james.taylor@gwmail.gwu.edu
+                                                </a>
+                                            </td>
+                                            <td>5</td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-1"></div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </body>
+
+</html>
+
+{% endblock %}

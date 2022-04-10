@@ -1,0 +1,388 @@
+{% extends 'base_loggedin.html' %} 
+
+{% block content %}
+
+    <body>
+
+        <main id="container" class="p-2">
+
+            <div class="container my-5">
+
+                <div class="row g-0 mt-3 py-3 customer-account-heading">
+                    <h3 class="d-flex justify-content-center p-2 font-weight-bold">My profile</h3>
+                </div>
+
+                <form action="#" id="editDriverForm" class="py-5 px-2 disabled border">
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="firstname">Firstname</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_firstname"
+                                   class="form-control mt-1"
+                                   value="Sohila"
+                                   id="firstname"
+                                   placeholder="James"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="lastname">Lastname</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_lastname"
+                                   class="form-control mt-1"
+                                   value="Manthena"
+                                   id="lastname"
+                                   placeholder="Webb"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="dateofbirth">Date of birth</label>
+
+                        <div class="col-sm-6">
+                            <input type="date"
+                                   name="rsu_dob"
+                                   class="form-control mt-1"
+                                   value="2022-04-05"
+                                   id="dateofbirth"
+                                   placeholder="2022-04-05"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="mobile">Mobile</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_mobile"
+                                   class="form-control mt-1"
+                                   value="+1(703) 679-0920"
+                                   id="mobile"
+                                   placeholder="202-994-1000"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="email">Email</label>
+
+                        <div class="col-sm-6">
+                            <input type="email"
+                                   name="rsu_email"
+                                   class="form-control mt-1"
+                                   id="email"
+                                   value="sohila.manethena@gwmail.gwu.edu"
+                                   placeholder="james.webb@gwmail.gwu.edu"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="address1">Address line 1</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_address1"
+                                   class="form-control mt-1"
+                                   id="address1"
+                                   value="202"
+                                   placeholder="H.No"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="address2">Address line 2</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_address2"
+                                   class="form-control mt-1"
+                                   id="address2"
+                                   value="1918 F Street"
+                                   placeholder="1918 F Street"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="city">City</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_city"
+                                   class="form-control mt-1"
+                                   id="city"
+                                   value="Washington DC"
+                                   placeholder="Washington DC"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="state">State / Province / Region</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_state"
+                                   class="form-control mt-1"
+                                   id="state"
+                                   value="Washington"
+                                   placeholder="Washington"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="zip">Postal Code</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_zip"
+                                   class="form-control mt-1"
+                                   id="zip"
+                                   value="200 52"
+                                   placeholder="200 52"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="license">License</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="rsu_license"
+                                   class="form-control mt-1"
+                                   id="license"
+                                   value="RTXH33402"
+                                   placeholder="0123456789"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="dateofissue">Date of issue</label>
+
+                        <div class="col-sm-6">
+                            <input type="date"
+                                   name="rsu_doi"
+                                   class="form-control mt-1"
+                                   id="dateofissue"
+                                   value="2020-04-05"
+                                   placeholder="2022-04-05"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="dateofexpiry">Date of expiry</label>
+
+                        <div class="col-sm-6">
+                            <input type="date"
+                                   name="rsu_doe"
+                                   class="form-control mt-1"
+                                   id="dateofexpiry"
+                                   value="2030-04-05"
+                                   placeholder="2032-04-05"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="my-1 border-bottom"></div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="vehicle">Vehicle</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="vsu_vehicle"
+                                   class="form-control mt-1"
+                                   id="vehicle"
+                                   value="My first car"
+                                   placeholder="My car"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="vehiclename">Name</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="vsu_name"
+                                   class="form-control mt-1"
+                                   id="vehiclename"
+                                   value="Volvo"
+                                   placeholder="Volvo, BMW"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="vehiclemodel">Make / Model</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="vsu_model"
+                                   class="form-control mt-1"
+                                   id="vehiclemodel"
+                                   value="S90"
+                                   placeholder="S90, V90"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="vehiclemanufacturedyear">Year of manufacture</label>
+
+                        <div class="col-sm-6">
+                            <input type="date"
+                                   name="vsu_year"
+                                   class="form-control mt-1"
+                                   id="vehiclemanufacturedyear"
+                                   value="2021-04-05"
+                                   placeholder="2022-04-05"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="vehiclecolor">Color</label>
+
+                        <div class="col-sm-6">
+                            <input type="color"
+                                   name="vsu_color"
+                                   class="form-control mt-1"
+                                   id="vehiclecolor"
+                                   value="black"
+                                   placeholder="white"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row my-1">
+
+                        <label class="col-sm-4" for="vehicleowner">Vehilce owner</label>
+
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   name="vsu_owner"
+                                   class="form-control mt-1"
+                                   id="vehicleowner"
+                                   value="Sohila Manthena"
+                                   placeholder="James Webb"
+                                   autocomplete="off"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group my-2">
+
+                        <div class="col-md-2"></div>
+
+                        <div class="col-md-8 d-flex justify-content-center">
+
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success" id="editDriverAccount">
+                                    <i class="fa-solid fa-pen"></i>&nbsp;Edit
+                                </button>
+                            </div>
+
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success d-none" id="saveDriverAccount">
+                                    <i class="fa-solid fa-save"></i>&nbsp;Save
+                                </button>
+                            </div>
+
+                            <div class="p-1">
+                                <button type="submit" class="btn btn-danger" id="deleteDriverProfileButton">
+                                    <i class="fa-solid fa-trash-alt"></i>&nbsp;Delete my profile
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                    </div>
+
+                    <div class="row p-2 my-1">
+                        <div class="mt-3 alert alert-danger d-none" id="emailAlert">
+                            <strong>Please enter a valid email !</strong> Ex: james@gwmail.gwu.edu
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </body>
+
+</html>
+
+{% endblock %}

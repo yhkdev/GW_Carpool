@@ -28,3 +28,15 @@ def event_edit(request):
 
 def event_new(request):
     return render(request, 'pages/event_new.html')
+
+
+def account_rider(request):
+    return render(request, 'pages/account_rider.html')
+
+
+def account_driver(request):
+    return render(request, 'pages/account_driver.html')
+
+
+def findride(request):
+    return render(request, 'pages/findride.html')
