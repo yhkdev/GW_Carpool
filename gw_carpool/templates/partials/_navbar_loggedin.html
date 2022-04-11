@@ -5,8 +5,8 @@
 
     <div class="container-fluid">
 
-        <a class="navbar-brand p-2" href="#">
-            <img src="images/gw_logo.png" alt="George Washington University">
+        <a class="navbar-brand p-2" href="{% url 'index' %}">
+            <img src="{% static 'images/gw_logo.png' %}" alt="George Washington University">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
@@ -16,13 +16,13 @@
         <div class="m-1 collapse navbar-collapse" id="myNavbar">
 
             <div class="ms-auto" id="carpoolLogo">
-                <img src="images/carpool_logo.jpeg" alt="George Washington University">
+                <img src="{% static 'images/logo.png' %}" alt="George Washington University">
             </div>
 
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'findride' %}">Find a ride / rider</a>
+                    <a class="nav-link" href="{% url 'findride' %}">Find a Ride / Rider</a>
                 </li>
 
                 <li class="nav-item">
@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Account</a>
+                    <a class="nav-link" href="{% url 'account_driver' %}">Account</a>
                 </li>
 
                 <li class="nav-item">

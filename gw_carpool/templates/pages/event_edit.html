@@ -1,55 +1,8 @@
-{% extends 'base.html' %} 
+{% extends 'base_loggedin.html' %} 
 
 {% block content %}
 
     <body>
-
-        <nav class="navbar navbar-expand-md navbar-dark bg-gw">
-
-            <div class="container-fluid">
-
-                <a class="navbar-brand p-2" href="#">
-                    <img src="images/gw_logo.png" alt="George Washington University" style="width:40px;">
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="m-1 collapse navbar-collapse" id="myNavbar">
-
-                    <div id="myNavbarHeading">
-                        <h3 style="color: #FAFCFC !important;">GWU Carpool</h3>
-                    </div>
-
-                    <form class="d-flex ms-auto m-1 me-lg-4">
-                        <input class="form-control form-control-sm" type="text" placeholder="Search">
-                        <button class="btn btn-success btn-sm" type="button">Search</button>
-                    </form>
-
-                    <ul class="navbar-nav">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Schedule</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Account</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">
-                                <span class="fas fa-arrow-right-from-bracket"></span>&nbsp;Logout
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </nav>
 
         <main id="container">
 
@@ -72,14 +25,33 @@
                                 <div class="form-group row my-2">
 
                                     <label class="col-12 col-sm-3 p-2 font-weight-bold d-md-flex justify-content-end">
-                                        Route:
+                                        From:
                                     </label>
 
                                     <div class="col-12 col-sm-8 col-lg-7">
 
                                         <select class="custom-select p-3" name="event_route">
-                                            <option value="1">GWU  -> Home</option>
-                                            <option value="2" selected>Home -> GWU</option>
+                                            <option>Select a route</option>
+                                            <option value="1">Home</option>
+                                            <option value="2">GWU</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row my-2">
+
+                                    <label class="col-12 col-sm-3 p-2 font-weight-bold d-md-flex justify-content-end">
+                                        To:
+                                    </label>
+
+                                    <div class="col-12 col-sm-8 col-lg-7">
+
+                                        <select class="custom-select p-3" name="event_route">
+                                            <option>Select a route</option>
+                                            <option value="1">Home</option>
+                                            <option value="2">GWU</option>
                                         </select>
 
                                     </div>
