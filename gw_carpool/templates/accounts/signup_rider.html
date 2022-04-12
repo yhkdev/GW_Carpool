@@ -9,9 +9,11 @@
         <main id="container">
 
             <div class="container mt-5">
-
-                <form action="#" id="customerSignUpForm">
-
+                <!-- Alerts -->
+                {% include 'partials/_alerts.html' %}
+                <form action="{% url 'signup_rider' %}" id="customerSignUpForm" method="POST">
+                    {% csrf_token %}
+                    
                     <h2 class="justify-content-center" style="display: inline-block;vertical-align: middle;">
                         You are a step away from the ride&nbsp;
                         <img src="{% static 'images/ride.png' %}" style="width: 48px; height: 48px;vertical-align: middle;">
