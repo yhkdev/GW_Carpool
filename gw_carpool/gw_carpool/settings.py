@@ -74,6 +74,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gw_carpool.wsgi.application'
 
 
+# Custom User Model
+
+AUTH_USER_MODEL = 'accounts.Account'
+
+
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
