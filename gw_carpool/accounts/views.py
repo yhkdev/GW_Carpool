@@ -1,14 +1,17 @@
 from django.contrib import messages
-from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+# from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
+
+from accounts.models import Account
 
 # Create your views here.
 
 def signup_rider(request):
     if request.method == 'POST':
         # Get form values
-        fname = request.POST['fname']
-        lname = request.POST['lname']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         phone = request.POST['phone']
         email = request.POST['email']
         password = request.POST['password']
@@ -18,13 +21,13 @@ def signup_rider(request):
         zip_code = request.POST['zip_code']
 
         # Check email for duplicate signup
-        if User.objects.filter(email=email).exists():
+        if Account.objects.filter(email=email).exists():
             messages.error(request, 'That email is already being used')
             return redirect('signup_rider')
         else:
             # If no problem, signup the rider user
-            user = User.objects.create_user(email=email, password=password,
-            fname=fname, lname=lname, phone=phone, street_address=street_address,
+            user = Account.objects.create_user(email=email, password=password,
+            first_name=first_name, last_name=last_name, phone=phone, street_address=street_address,
             city=city, state=state, zip_code=zip_code, is_driver=0)
             user.save()
             messages.success(request, 'You have signed up successfully and can log in')
@@ -39,15 +42,23 @@ def signup_driver(request):
     else:
         return render(request, 'accounts/signup_driver.html')
 
-def login(request):
+def login_user(request):
     if request.method == 'POST':
-        # Login User
-        return
+        email = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(request, email=email, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Logged in Successfully')
+            return redirect('index')
+        else:
+            messages.error(request, 'Invalid email and/or password')
+            return render(request, 'accounts/login_user.html')
     else:
-        return render(request, 'accounts/login.html')
+        return render(request, 'accounts/login_user.html')
 
-def logout(request):
+def logout_user(request):
     return redirect('index')
 
-def myschedule(request):
-    return render(request, 'schedules/schedule.html')
+# def myschedule(request):
+#     return render(request, 'schedules/schedule.html')

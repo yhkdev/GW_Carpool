@@ -11,7 +11,7 @@
             <div class="container mt-5">
                 <!-- Alerts -->
                 {% include 'partials/_alerts.html' %}
-                <form action="{% url 'login' %}" id="signInForm" method="POST">
+                <form action="{% url 'login_user' %}" id="signInForm" method="POST">
                     {% csrf_token %}
                     
                     <h2 class="d-flex justify-content-center">Login</h2>
