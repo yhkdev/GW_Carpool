@@ -1,9 +1,5 @@
 {% load static %}
 
-<!-- Nav Bar (Logged-in) -->
-
-{% if user.is_authenticated %}
-
 <nav class="navbar navbar-expand-md navbar-dark bg-gw">
 
     <div class="container-fluid">
@@ -24,6 +20,9 @@
 
             <ul class="navbar-nav ms-auto">
 
+                <!-- Navbar (Logged-in) -->
+                {% if user.is_authenticated %}
+                
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'findride' %}">Find a Ride / Rider</a>
                 </li>
@@ -37,10 +36,32 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
+                    <a class="nav-link" href="{% url 'logout_user' %}">
                         <span class="fas fa-arrow-right-from-bracket"></span>&nbsp;Logout
                     </a>
                 </li>
+
+                <!-- Navbar (Logged-out) -->
+                {% else %}
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Sign Up
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'signup_rider' %}">Sign Up to ride</a></li>
+                      <li><a class="dropdown-item" href="{% url 'signup_driver' %}">Sign Up to drive</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login_user' %}">
+                        Login&nbsp;<span class="fas fa-arrow-right-to-bracket"></span>
+                    </a>
+                    
+                </li>
+
+                {% endif %}
 
             </ul>
 
@@ -49,51 +70,3 @@
     </div>
 
 </nav>
-
-{% else %}
-
-<!-- Nav Bar (Not Logged-in)-->
-<nav class="navbar navbar-dark bg-gw">
-
-    <div class="container-fluid">
-
-        <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="{% static 'images/gw_logo.png' %}" alt="George Washington University" style="width:40px;">
-        </a>
-        <div class="m-2">
-            <div class="ms-auto" id="carpoolLogo">
-                <img src="{% static 'images/logo.png' %}" alt="George Washington University">
-            </div>
-        </div>
-
-        <div class="d-flex flex-row">
-            <div class="m-2">
-                <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle mb-3" data-bs-toggle="dropdown">
-                        Sign Up
-                    </button>
-                    <ul class="dropdown-menu p-2" style="width: 180px;">
-                        <li>
-                            <button class="btn btn-success my-2" type="button" onclick="location.href='{% url 'signup_rider' %}'" style="width: 100%;">
-                                Sign Up to ride&nbsp;<i class="fa fa-solid fa-user"></i>
-                            </button>
-                        </li>
-                        <li>
-                            <button class="btn btn-success my-2" type="button" onclick="location.href='{% url 'signup_driver' %}'" style="width: 100%;">
-                                Sign Up to drive&nbsp;<i class="fa fa-solid fa-car"></i>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="m-2">
-                <button class="btn btn-success" type="button" onclick="location.href='{% url 'login_user' %}'">
-                    Login&nbsp;<i class="fa fa-solid fa-arrow-right-to-bracket"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-</nav>
-
-{% endif %}
