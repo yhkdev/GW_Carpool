@@ -1,13 +1,71 @@
 {% load static %}
 
-<!-- Nav Bar -->
-<nav class="navbar navbar-dark bg-gw">
+<!-- Nav Bar (Logged-in) -->
+
+{% if user.is_authenticated %}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-gw">
+
     <div class="container-fluid">
-        <div>
-            <a class="navbar-brand" href="{% url 'index' %}">
-                <img src="{% static 'images/gw_logo.png' %}" alt="George Washington University" style="width:40px;">
-            </a>
+
+        <a class="navbar-brand p-2" href="{% url 'index' %}">
+            <img src="{% static 'images/gw_logo.png' %}" alt="George Washington University">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="m-1 collapse navbar-collapse" id="myNavbar">
+
+            <div class="ms-auto" id="carpoolLogo">
+                <img src="{% static 'images/logo.png' %}" alt="George Washington University">
+            </div>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'findride' %}">Find a Ride / Rider</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'schedule' %}">My Schedule</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_driver' %}">Account</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">
+                        <span class="fas fa-arrow-right-from-bracket"></span>&nbsp;Logout
+                    </a>
+                </li>
+
+            </ul>
+
         </div>
+
+    </div>
+
+</nav>
+
+{% else %}
+
+<!-- Nav Bar (Not Logged-in)-->
+<nav class="navbar navbar-dark bg-gw">
+
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'images/gw_logo.png' %}" alt="George Washington University" style="width:40px;">
+        </a>
+        <div class="m-2">
+            <div class="ms-auto" id="carpoolLogo">
+                <img src="{% static 'images/logo.png' %}" alt="George Washington University">
+            </div>
+        </div>
+
         <div class="d-flex flex-row">
             <div class="m-2">
                 <div class="dropdown">
@@ -37,3 +95,5 @@
     </div>
 
 </nav>
+
+{% endif %}
