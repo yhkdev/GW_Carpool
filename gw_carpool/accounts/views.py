@@ -58,6 +58,8 @@ def login_user(request):
         return render(request, 'accounts/login_user.html')
 
 def logout_user(request):
+    logout(request)
+    messages.success(request, 'You Have Logged Out')
     return redirect('index')
 
 # def myschedule(request):
