@@ -1,45 +1,50 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
+                                        PermissionsMixin)
 from django.db import models
 
-
 # Create your models here.
+
 class MyAccountManager(BaseUserManager):
-    def create_user(self, email, first_name, last_name, password=None, **other_fields):
-        """ Creates and saves a User """
+
+    def create_user(self, email, password, **other_fields):
         if not email:
-            raise ValueError('Users must have an email address')
-
-        user = self.model(
-            email=self.normalize_email(email),
-            first_name = first_name,
-            last_name = last_name,
-            **other_fields
-        )
-
+            raise ValueError('The Email must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **other_fields)
         user.set_password(password)
-        user.save(using=self._db)
+        user.save()
         return user
 
-    def create_superuser(self, email, first_name, last_name, password=None, **other_fields):
-        """ Creates and saves a superuser """
-        user = self.create_user(
-            email=self.normalize_email(email),
-            first_name=first_name,
-            last_name=last_name,
-            password=password,
-        )
-        user.is_staff = True
-        user.is_superuser = True
-        user.save(using=self._db)
-        return user
+    def create_superuser(self, email, password, **other_fields):
+        other_fields.setdefault('is_staff', True)
+        other_fields.setdefault('is_superuser', True)
+        other_fields.setdefault('is_active', True)
 
+        if other_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if other_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+        return self.create_user(email, password, **other_fields)
 
-class Account(AbstractBaseUser):
-    #user: models.ForeignKey(User, on_delete=models.CASCADE) # models.CASCADE = delete all schedule related to the deleted User
-    email = models.EmailField(verbose_name='email', unique=True)
+class Account(AbstractBaseUser, PermissionsMixin):
+    
+    # choices variables for 'state'
+    state_choices = (
+        ('1', 'DC'),
+        ('2', 'VA'),
+        ('3', 'MD')
+    )
+
+    # User fields
+    email = models.EmailField('email', unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100, blank=True)
+    street_address = models.CharField(max_length=100, blank=True)
+    city = models.CharField(max_length=100, blank=True)
+    state = models.CharField(max_length=100, choices=state_choices, blank=True)
+    zip_code = models.CharField(max_length=5, blank=True)
+    is_driver = models.BooleanField(default=False)
 
     # Required fields for django custom form
     is_staff = models.BooleanField(default=False)
@@ -49,16 +54,69 @@ class Account(AbstractBaseUser):
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = []
 
     objects = MyAccountManager()
 
     def __str__(self):
-        # This is what shows as each row's name when you look from django admin db
         return str(self.email)
 
-    def has_perm(self, perm, obj=None):
-        return self.is_staff
+# class MyAccountManager(BaseUserManager):
+#     def create_user(self, email, first_name, last_name, password=None, **other_fields):
+#         """ Creates and saves a User """
+#         if not email:
+#             raise ValueError('Users must have an email address')
 
-    def has_module_perms(self, app_label: str) -> bool:
-        return True
+#         user = self.model(
+#             email=self.normalize_email(email),
+#             first_name = first_name,
+#             last_name = last_name,
+#             **other_fields
+#         )
+
+#         user.set_password(password)
+#         user.save(using=self._db)
+#         return user
+
+#     def create_superuser(self, email, first_name, last_name, password=None, **other_fields):
+#         """ Creates and saves a superuser """
+#         user = self.create_user(
+#             email=self.normalize_email(email),
+#             first_name=first_name,
+#             last_name=last_name,
+#             password=password,
+#         )
+#         user.is_staff = True
+#         user.is_superuser = True
+#         user.save(using=self._db)
+#         return user
+
+
+# class Account(AbstractBaseUser):
+#     #user: models.ForeignKey(User, on_delete=models.CASCADE) # models.CASCADE = delete all schedule related to the deleted User
+#     email = models.EmailField(verbose_name='email', unique=True)
+#     first_name = models.CharField(max_length=100)
+#     last_name = models.CharField(max_length=100)
+#     phone = models.CharField(max_length=100)
+
+#     # Required fields for django custom form
+#     is_staff = models.BooleanField(default=False)
+#     is_active = models.BooleanField(default=True)
+#     is_superuser = models.BooleanField(default=False)
+#     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
+#     date_joined = models.DateTimeField(verbose_name='date joined', auto_now=True)
+
+#     USERNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = ['first_name', 'last_name']
+
+#     objects = MyAccountManager()
+
+#     def __str__(self):
+#         # This is what shows as each row's name when you look from django admin db
+#         return str(self.email)
+
+#     def has_perm(self, perm, obj=None):
+#         return self.is_staff
+
+#     def has_module_perms(self, app_label: str) -> bool:
+#         return True
