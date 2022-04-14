@@ -29,11 +29,11 @@ class MyAccountManager(BaseUserManager):
 class Account(AbstractBaseUser, PermissionsMixin):
     
     # choices variables for 'state'
-    state_choices = (
-        ('1', 'DC'),
-        ('2', 'VA'),
-        ('3', 'MD')
-    )
+    # state_choices = (
+    #     ('1', 'DC'),
+    #     ('2', 'VA'),
+    #     ('3', 'MD')
+    # )
 
     # User fields
     email = models.EmailField('email', unique=True)
@@ -42,7 +42,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(max_length=100, blank=True)
     street_address = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=100, blank=True)
-    state = models.CharField(max_length=100, choices=state_choices, blank=True)
+    state = models.CharField(max_length=100, blank=True) # add choices=state_choices to enable dropdown menu in admin area user edit. But this cause problem getting value from website user registration
     zip_code = models.CharField(max_length=5, blank=True)
     is_driver = models.BooleanField(default=False)
 

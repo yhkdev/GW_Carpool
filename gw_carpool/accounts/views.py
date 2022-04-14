@@ -1,6 +1,5 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-# from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
 from accounts.models import Account
@@ -9,6 +8,28 @@ from accounts.models import Account
 
 def signup_rider(request):
     if request.method == 'POST':
+    # # Don't use django's form method for signup. It messes with css frontend already in place for signup page
+    #     form = CustomUserCreationForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         email = form.cleaned_data['email']
+    #         password = form.cleaned_data['password']
+    #         first_name = form.cleaned_data['first_name']
+    #         last_name = form.cleaned_data['last_name']
+    #         # phone = form.cleaned_data['phone']
+    #         # street_address = form.cleaned_data['street_address']
+    #         # city = form.cleaned_data['city']
+    #         # state = form.cleaned_data['state']
+    #         # zip_code = form.cleaned_data['zip_code']
+    #         user = authenticate(request, email=email, password=password)
+    #         messages.success(request, 'You have signed up successfully and can now log in')
+    #         return redirect('signup_rider')
+    # else:
+    #     form = CustomUserCreationForm()
+    # return render(request, 'accounts/signup_rider.html', {
+    #     'form':form,
+    # })
+        
         # Get form values
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -31,7 +52,7 @@ def signup_rider(request):
             city=city, state=state, zip_code=zip_code, is_driver=0)
             user.save()
             messages.success(request, 'You have signed up successfully and can log in')
-            return redirect('register')
+            return redirect('signup_rider')
     else:
         return render(request, 'accounts/signup_rider.html')
 
