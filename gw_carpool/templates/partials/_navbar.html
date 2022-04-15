@@ -45,13 +45,9 @@
                 {% else %}
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link" href="{% url 'signup_user' %}">
                       Sign Up
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="{% url 'signup_rider' %}">Sign Up to ride</a></li>
-                      <li><a class="dropdown-item" href="{% url 'signup_driver' %}">Sign Up to drive</a></li>
-                    </ul>
                 </li>
 
                 <li class="nav-item">

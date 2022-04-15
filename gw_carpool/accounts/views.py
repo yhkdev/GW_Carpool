@@ -6,7 +6,7 @@ from accounts.models import Account
 
 # Create your views here.
 
-def signup_rider(request):
+def signup_user(request):
     if request.method == 'POST':
     # # Don't use django's form method for signup. It messes with css frontend already in place for signup page
     #     form = CustomUserCreationForm(request.POST)
@@ -44,7 +44,7 @@ def signup_rider(request):
         # Check email for duplicate signup
         if Account.objects.filter(email=email).exists():
             messages.error(request, 'That email is already being used')
-            return redirect('signup_rider')
+            return redirect('signup_user')
         else:
             # If no problem, signup the rider user
             user = Account.objects.create_user(email=email, password=password,
@@ -52,16 +52,9 @@ def signup_rider(request):
             city=city, state=state, zip_code=zip_code, is_driver=0)
             user.save()
             messages.success(request, 'You have signed up successfully and can log in')
-            return redirect('signup_rider')
+            return redirect('signup_user')
     else:
-        return render(request, 'accounts/signup_rider.html')
-
-def signup_driver(request):
-    if request.method == 'POST':
-        # Signup Driver
-        return
-    else:
-        return render(request, 'accounts/signup_driver.html')
+        return render(request, 'accounts/signup_user.html')
 
 def login_user(request):
     if request.method == 'POST':
