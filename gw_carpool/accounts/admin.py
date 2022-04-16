@@ -23,7 +23,7 @@ class CustomUserAdmin(UserAdmin):
             'is_driver', 'is_staff', 'is_active', 'is_superuser')}
         ),
     )
-    search_fields = ('email', 'first_name', 'last_name', 'phone', 'street_address', 'city', 'state', 'zip_code')
+    search_fields = ('email', 'first_name', 'last_name', 'phone', 'street_address', 'city', 'state', 'zip_code', 'is_driver')
     ordering = ('email',)
 
 

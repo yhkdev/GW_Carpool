@@ -137,6 +137,30 @@
                                 >
                             </div>
 
+                            {% comment %} <div class="my-2">
+                                <label class="font-weight-bold" for="is_driver">Check if you are a Driver</label>
+                                <input type="checkbox"
+                                       name="is_driver"
+                                       class="form-control mt-1"
+                                       id="is_driver"
+                                >
+                            </div> {% endcomment %}
+
+                            <div class="form-check">
+                                <!-- I used the hidden input method shown at: https://laracasts.com/discuss/channels/laravel/how-to-pass-checkbox-value-0-if-not-checked-and-1-if-checked
+                                    and https://stackoverflow.com/questions/14067215/unchecked-checkbox-returning-null-value
+                                    If we just use a single html checkbox input, value=1 gets passed if box checked, but if not checked, nothing (Null) gets passed. This was problematic
+                                    for my backend -->
+                                {% comment %} <input class="form-check-input" type="checkbox" name="is_driver" value="True" id="is_driver"> {% endcomment %}
+                                <input class="form-check-input" type="hidden" name="is_driver" value=0 id="is_driver">
+                                <input class="form-check-input" type="checkbox" name="is_driver" value=1 id="is_driver">
+                                <label class="form-check-label" for="is_driver">
+
+                                    
+                                    Check if you are a Driver
+                                </label>
+                            </div>
+
                             <div class="d-flex">
                                 <button type="submit" class="btn mt-4 btn-success flex-fill" id="customerSignUpButton">
                                     Submit

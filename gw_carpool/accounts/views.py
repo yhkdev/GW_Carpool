@@ -40,6 +40,7 @@ def signup_user(request):
         city = request.POST['city']
         state = request.POST['state']
         zip_code = request.POST['zip_code']
+        is_driver = request.POST['is_driver']
 
         # Check email for duplicate signup
         if Account.objects.filter(email=email).exists():
@@ -49,7 +50,7 @@ def signup_user(request):
             # If no problem, signup the rider user
             user = Account.objects.create_user(email=email, password=password,
             first_name=first_name, last_name=last_name, phone=phone, street_address=street_address,
-            city=city, state=state, zip_code=zip_code, is_driver=0)
+            city=city, state=state, zip_code=zip_code, is_driver=is_driver)
             user.save()
             messages.success(request, 'You have signed up successfully and can log in')
             return redirect('signup_user')
