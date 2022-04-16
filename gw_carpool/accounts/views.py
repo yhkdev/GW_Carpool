@@ -77,5 +77,10 @@ def logout_user(request):
     messages.success(request, 'You Have Logged Out')
     return redirect('index')
 
+def profile(request):
+    return render(request, 'accounts/profile.html')
+
+def findride(request):
+    return render(request, 'accounts/findride.html')
 # def myschedule(request):
 #     return render(request, 'schedules/schedule.html')
