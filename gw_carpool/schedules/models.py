@@ -10,10 +10,10 @@ from django.db import models
 
 class Schedule(models.Model):
     #user: models.ForeignKey(User, on_delete=models.CASCADE) # models.CASCADE = delete all schedule related to the deleted User
-    From: models.CharField(max_length=100)
-    to: models.CharField(max_length=100)
-    date: models.DateField()
-    pickup_time: models.TimeField()
+    From = models.CharField(max_length=100)
+    to = models.CharField(max_length=100)
+    date = models.DateField()
+    pickup_time = models.TimeField()
     def __str__(self):
         # This is what shows as each row's name when you look from django admin db
         return self.From + " to " + self.to
