@@ -1,7 +1,7 @@
 from django.db.models import Value
 from django.db.models.functions import Concat
 from django.shortcuts import render
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 
 from .forms import ScheduleForm
 from .models import Schedule
@@ -12,15 +12,17 @@ class ScheduleView(ListView):
     model = Schedule
     template_name = 'schedule.html'
 
-class ScheduleEditView(DetailView):
-    model = Schedule
-    template_name = 'schedules/schedule_edit.html'
-
 class ScheduleAddView(CreateView):
     model = Schedule
     form_class = ScheduleForm
     template_name = 'schedules/schedule_new.html'
     # fields = '__all__'
+
+class ScheduleEditView(UpdateView):
+    model = Schedule
+    template_name = 'schedules/schedule_edit.html'
+    form_class = ScheduleForm
+
 
 # Note: replace 'schedule.html' in index() or schedule() methods at some point!!!  
 

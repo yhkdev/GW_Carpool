@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
     <body>
 
         <main id="container">
@@ -19,10 +20,12 @@
                         <div class="container-fluid">
 
                             <div class="row d-flex justify-content-center mt-2 mb-5">
-                                <h2 class="d-flex justify-content-center">Edit schedule</h2>
+                                <h2 class="d-flex justify-content-center">Edit event</h2>
                             </div>
 
-                            <form action="#" id="eventForm">
+
+                            <form method="POST" id="eventForm">
+                                {% csrf_token %}
 
                                 <div class="form-group row my-2">
 
@@ -31,13 +34,7 @@
                                     </label>
 
                                     <div class="col-12 col-sm-8 col-lg-7">
-
-                                        <select class="custom-select p-3" name="event_route">
-                                            <option>Select a route</option>
-                                            <option value="1">Home</option>
-                                            <option value="2">GWU</option>
-                                        </select>
-
+                                        {{ form.From }}
                                     </div>
 
                                 </div>
@@ -49,13 +46,7 @@
                                     </label>
 
                                     <div class="col-12 col-sm-8 col-lg-7">
-
-                                        <select class="custom-select p-3" name="event_route">
-                                            <option>Select a route</option>
-                                            <option value="1">Home</option>
-                                            <option value="2">GWU</option>
-                                        </select>
-
+                                        {{ form.to }}
                                     </div>
 
                                 </div>
@@ -63,19 +54,11 @@
                                 <div class="form-group row my-2">
 
                                     <label class="col-12 col-sm-3 p-2 font-weight-bold d-md-flex justify-content-end">
-                                        Date:
+                                        Day:
                                     </label>
 
                                     <div class="col-12 col-sm-8 col-lg-7">
-
-                                        <input type="date"
-                                               name="event_date"
-                                               value="2022-03-26"
-                                               class="form-control mt-1"
-                                               placeholder="2022-03-25"
-                                               autocomplete="off"
-                                        >
-
+                                        {{ form.day }}
                                     </div>
 
                                 </div>
@@ -83,19 +66,11 @@
                                 <div class="form-group row my-2">
 
                                     <label class="col-12 col-sm-3 p-2 font-weight-bold d-md-flex justify-content-end">
-                                        Time:
+                                        Pick-up Time:
                                     </label>
 
                                     <div class="col-12 col-sm-8 col-lg-7">
-
-                                        <input type="time"
-                                               name="event_time"
-                                               class="form-control mt-1"
-                                               value="13:37"
-                                               placeholder="13:37"
-                                               autocomplete="off"
-                                        >
-
+                                        {{ form.pickup_time }}
                                     </div>
 
                                 </div>
@@ -106,14 +81,13 @@
                                         <button type="submit" class="btn btn-success" id="saveEventButton">Save</button>
                                     </div>
 
-                                    <div class="p-1">
-                                        <button type="submit" class="btn btn-danger">Cancel</button>
-                                    </div>
-
-                                </div>
+                                
 
                             </form>
-
+                            <div class="p-1">
+                                <button type="submit" class="btn btn-danger">Cancel</button>
+                            </div>
+                        </div>
                         </div>
 
                     </div>
