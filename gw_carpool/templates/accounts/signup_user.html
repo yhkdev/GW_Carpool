@@ -11,7 +11,7 @@
             <div class="container mt-5">
                 <!-- Alerts -->
                 {% include 'partials/_alerts.html' %}
-                <form action="{% url 'signup_user' %}" id="customerSignUpForm" method="POST">
+                <form action="{% url 'signup_user' %}" id="userSignUpForm" method="POST">
                     {% csrf_token %}
 
                     <h2 class="justify-content-center" style="display: inline-block;vertical-align: middle;">
@@ -162,7 +162,7 @@
                             </div>
 
                             <div class="d-flex">
-                                <button type="submit" class="btn mt-4 btn-success flex-fill" id="customerSignUpButton">
+                                <button type="submit" class="btn mt-4 btn-success flex-fill" id="userSignUpForm">
                                     Submit
                                 </button>
                             </div>
