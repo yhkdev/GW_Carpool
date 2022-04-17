@@ -1,0 +1,78 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block content %}
+
+    <body>
+
+        <main id="container">
+
+            <div class="container my-5">
+                <div class="d-flex justify-content-end">
+                    <div>
+                        <button type="button" class="btn btn-lg btn-primary" onclick="location.href='{% url 'schedule_new' %}'">
+                            <i class="fas fa-plus"></i>&nbsp;&nbsp;
+                            Add a Schedule
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row my-5">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 border px-3 px-lg-5">
+                        <div class="container-fluid my-5">
+
+                            <div class="row d-flex justify-content-center">
+                                <h2 class="d-flex justify-content-center">My Schedule</h2>
+                            </div>
+
+                            <div class="row g-0">
+
+                                <table class="table table-bordered table-hover my-5">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Day</th>
+                                            <th>Pick-up Time</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% if object_list %}
+                                            {% for schedule in object_list %}
+                                            <tr>
+                                                <td>{{ schedule.From }}</td>
+                                                <td>{{ schedule.to }}</td>
+                                                <td>{{ schedule.day }}</td>
+                                                <td>{{ schedule.pickup_time }}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' schedule.pk %}'"></i></button>
+                                                    <button type="button" class="btn btn-sm btn-danger ml-1 px-2 py-1"><i class="fas fa-trash-alt"></i></button>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            No schedules detected
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+
+        </main>
+
+    </body>
+
+</html>
+
+{% endblock %}

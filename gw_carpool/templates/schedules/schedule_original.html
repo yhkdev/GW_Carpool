@@ -36,16 +36,34 @@
                                         <tr>
                                             <th>From</th>
                                             <th>To</th>
-                                            <th>Date</th>
+                                            <th>Day</th>
                                             <th>Pick-up Time</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        {% if object_list %}
+                                            {% for schedule in object_list %}
+                                            <tr>
+                                                <td>{{ schedule.From }}Home</td>
+                                                <td>{{ schedule.to }}GWU</td>
+                                                <td>{{ schedule.day }}Monday</td>
+                                                <td>{{ schedule.pickup_time }}08:00</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' %}'"></i></button>
+                                                    <button type="button" class="btn btn-sm btn-danger ml-1 px-2 py-1"><i class="fas fa-trash-alt"></i></button>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            No schedules detected
+                                        {% endif %}
+
                                         <tr>
                                             <td>Home</td>
                                             <td>GWU</td>
-                                            <td>2022-04-02</td>
+                                            <td>Monday</td>
                                             <td>08:00</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' %}'"></i></button>
@@ -55,7 +73,7 @@
                                         <tr>
                                             <td>GWU</td>
                                             <td>Home</td>
-                                            <td>2022-04-02</td>
+                                            <td>Monday</td>
                                             <td>16:00</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' %}'"></i></button>
@@ -65,7 +83,7 @@
                                         <tr>
                                             <td>Home</td>
                                             <td>GWU</td>
-                                            <td>2022-04-03</td>
+                                            <td>Wednesday</td>
                                             <td>08:00</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' %}'"></i></button>
@@ -75,7 +93,7 @@
                                         <tr>
                                             <td>GWU</td>
                                             <td>Home</td>
-                                            <td>2022-04-03</td>
+                                            <td>Wednesday</td>
                                             <td>16:00</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' %}'"></i></button>

@@ -1,11 +1,10 @@
 from django.urls import path
 
 from . import views
+from .views import ScheduleAddView, ScheduleEditView, ScheduleView
 
 urlpatterns = [
-    path('', views.index, name='schedule'),
-    path('<int:schedule_id>', views.schedule, name='schedule'),
-
-    path('schedule_edit', views.schedule_edit, name='schedule_edit'),
-    path('schedule_new', views.schedule_new, name='schedule_new'),
+    path('', ScheduleView.as_view(), name='schedule'),
+    path('<int:pk>', ScheduleEditView.as_view(), name='schedule_edit'),
+    path('schedule_new', ScheduleAddView.as_view(), name='schedule_new'),
 ]
