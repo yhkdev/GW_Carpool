@@ -29,48 +29,28 @@
                                         <tr>
                                             <th>Driver</th>
                                             <th>Email</th>
-                                            <th>Distance (in miles)</th>
+                                            <th>State</th>
                                         </tr>
 
                                     </thead>
 
                                     <tbody>
 
-                                        <tr>
-                                            <td>
-                                                <a class="btn btn-link" href="javascript:void(0)">Sohila Manthena</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-link" href="mailto:sohila.manethena@gwmail.gwu.edu">
-                                                    sohila.manethena@gwmail.gwu.edu
-                                                </a>
-                                            </td>
-                                            <td>2</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <a class="btn btn-link" href="javascript:void(0)">James Webb</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-link" href="mailto:james.webb@gwmail.gwu.edu">
-                                                    james.webb@gwmail.gwu.edu
-                                                </a>
-                                            </td>
-                                            <td>12</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <a class="btn btn-link" href="javascript:void(0)">James Taylor</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-link" href="mailto:james.taylor@gwmail.gwu.edu">
-                                                    james.taylor@gwmail.gwu.edu
-                                                </a>
-                                            </td>
-                                            <td>5</td>
-                                        </tr>
+                                        {% if accounts %}
+                                            {% for account in accounts %}
+                                            <tr>
+                                                <td>
+                                                    <a class="btn btn-link" href="javascript:void(0)">{{ account.full_name }}</a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-link" href="mailto:{{ account.email }}">
+                                                        {{ account.email }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ account.state }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        {% endif %}
 
                                     </tbody>
 

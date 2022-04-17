@@ -1,5 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.db.models import Value
+from django.db.models.functions import Concat
 from django.shortcuts import redirect, render
 
 from accounts.models import Account
@@ -81,6 +83,15 @@ def profile(request):
     return render(request, 'accounts/profile.html')
 
 def findride(request):
-    return render(request, 'accounts/findride.html')
+    # user_accounts = Account.objects.all()
+
+    # Craete accounts object, and define'accounts.full_name' to be used in html jinja
+    user_accounts = Account.objects.annotate(full_name=Concat("first_name", Value(" "), "last_name"))
+
+    context = {
+        'accounts': user_accounts
+    }
+
+    return render(request, 'accounts/findride.html', context)
 # def myschedule(request):
 #     return render(request, 'schedules/schedule.html')
