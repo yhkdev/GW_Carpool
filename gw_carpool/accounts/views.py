@@ -80,7 +80,13 @@ def logout_user(request):
     return redirect('index')
 
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    user_profile = request.user
+
+    context = {
+        'profile': user_profile
+    }
+
+    return render(request, 'accounts/profile.html', context)
 
 def findride(request):
     # user_accounts = Account.objects.all()
