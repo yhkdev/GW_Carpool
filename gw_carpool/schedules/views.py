@@ -1,7 +1,8 @@
 from django.db.models import Value
 from django.db.models.functions import Concat
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from .forms import ScheduleForm
 from .models import Schedule
@@ -11,6 +12,7 @@ from .models import Schedule
 class ScheduleView(ListView):
     model = Schedule
     template_name = 'schedule.html'
+    # ordering = ['day']
 
 class ScheduleAddView(CreateView):
     model = Schedule
@@ -22,6 +24,11 @@ class ScheduleEditView(UpdateView):
     model = Schedule
     template_name = 'schedules/schedule_edit.html'
     form_class = ScheduleForm
+
+class ScheduleDeleteView(DeleteView):
+    model = Schedule
+    template_name = 'schedules/schedule_delete.html'
+    success_url = reverse_lazy('schedule')
 
 
 # Note: replace 'schedule.html' in index() or schedule() methods at some point!!!  

@@ -52,7 +52,7 @@
                                                 <td>{{ schedule.pickup_time }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' schedule.pk %}'"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-danger ml-1 px-2 py-1"><i class="fas fa-trash-alt"></i></button>
+                                                    <button type="button" class="btn btn-sm btn-danger ml-1 px-2 py-1"><i class="fas fa-trash-alt" onclick="location.href='{% url 'schedule_delete' schedule.pk %}'"></i></button>
                                                 </td>
                                             </tr>
                                             {% endfor %}
