@@ -1,9 +1,9 @@
 from accounts.models import Account
+from crum import get_current_user
 from django.db import models
 from django.urls import reverse
 
-# Use below code to import foreign key db later:
-# from users.models import user
+# "crum": 'django-crum' pkg installed through pip. Imported to Middleware in settings.py. Used to get currently logged-in user obj in django
 
 # Create your models here.
 
@@ -37,7 +37,7 @@ class Schedule(models.Model):
         ('GWU', 'GWU'),
     )
 
-    # owner = models.ForeignKey(Account, on_delete=models.CASCADE)# models.CASCADE = delete all schedule related to the deleted User
+    owner = models.ForeignKey(Account, on_delete=models.CASCADE, default=get_current_user) # models.CASCADE = delete all schedule related to the deleted User
     From = models.CharField(max_length=10, choices=destinations)
     to = models.CharField(max_length=10, choices=destinations)
     day = models.CharField(max_length=10, choices=day_of_the_week) # add choices=state_choices to enable dropdown menu in admin area user edit. 

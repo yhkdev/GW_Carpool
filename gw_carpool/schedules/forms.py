@@ -1,3 +1,5 @@
+from tkinter import HIDDEN
+
 from django import forms
 
 from .models import Schedule
