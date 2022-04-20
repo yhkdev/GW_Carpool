@@ -21,6 +21,9 @@ class ScheduleView(ListView):
         """ Get Account obj (the schedule owner) using 'owner_id' path passed from urls.py as fk. Pass it on to schedule_list.html 
             Used to compare schedule owner with currently logged-in user to hide the create, edit, delete schedule buttons. 
             "self.kwargs['owner_id']" is used to get the path as a variable. 
+            Source: https://docs.djangoproject.com/en/4.0/topics/class-based-views/generic-display/#dynamic-filtering
+                    https://stackoverflow.com/questions/41708360/passing-url-variables-to-a-class-based-view
+                    https://stackoverflow.com/questions/63916041/how-to-get-object-by-name-in-views-py-django
         """
         context = super(ScheduleView, self).get_context_data(*args,**kwargs)
         context['owner_obj'] = get_object_or_404(Account, pk=self.kwargs['owner_id'])

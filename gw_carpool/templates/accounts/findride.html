@@ -38,17 +38,19 @@
 
                                         {% if accounts %}
                                             {% for account in accounts %}
-                                            <tr>
-                                                <td>
-                                                    <a class="btn btn-link" href="javascript:void(0)">{{ account.full_name }}</a>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-link" href="mailto:{{ account.email }}">
-                                                        {{ account.email }}
-                                                    </a>
-                                                </td>
-                                                <td>{{ account.state }}</td>
-                                            </tr>
+                                                {% if not account.is_superuser %}
+                                                <tr>
+                                                    <td>
+                                                        <a class="btn btn-link" href="{% url 'schedule' account.pk %}">{{ account.full_name }}</a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-link" href="mailto:{{ account.email }}">
+                                                            {{ account.email }}
+                                                        </a>
+                                                    </td>
+                                                    <td>{{ account.state }}</td>
+                                                </tr>
+                                                {% endif %}
                                             {% endfor %}
                                         {% endif %}
 
