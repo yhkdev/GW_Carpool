@@ -7,9 +7,6 @@ from django.urls import reverse
 
 # Create your models here.
 
-# Note: Need to somehow bring in django's account user info table in here as 'User'
-#       Afterwards, run 'python manage.py makemigrations' & 'python manage.py migrate' to update DB
-
 class Schedule(models.Model):
     
     # day_of_the_week = (
@@ -48,5 +45,5 @@ class Schedule(models.Model):
         return self.day + " : " + self.From + " to " + self.to
 
     def get_absolute_url(self):
-        return reverse("schedule", kwargs={"pk": self.owner})
+        return reverse("schedule", kwargs={"owner_id": self.owner})
     

@@ -1,18 +1,36 @@
 from django.db.models import Value
 from django.db.models.functions import Concat
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from .forms import ScheduleForm
-from .models import Schedule
+from .models import Account, Schedule
 
 # Create your views here.
+
+# Journal == Account
+# Article == Schedule 
 
 class ScheduleView(ListView):
     model = Schedule
     template_name = 'schedule.html'
     # ordering = ['day']
+
+    def get_context_data(self,*args, **kwargs):
+        """ Get Account obj (the schedule owner) using 'owner_id' path passed from urls.py as fk. Pass it on to schedule_list.html 
+            Used to compare schedule owner with currently logged-in user to hide the create, edit, delete schedule buttons. 
+            "self.kwargs['owner_id']" is used to get the path as a variable. 
+        """
+        context = super(ScheduleView, self).get_context_data(*args,**kwargs)
+        context['owner_obj'] = get_object_or_404(Account, pk=self.kwargs['owner_id'])
+        return context
+        
+    def get_queryset(self):
+        """ Filter schedule items to be displayed in schedule_list.html by its schedule owner (using 'owner_id' path passed from urls.py) """
+        return Schedule.objects.filter(owner=self.kwargs['owner_id'])
+
+
 
 class ScheduleAddView(CreateView):
     model = Schedule
