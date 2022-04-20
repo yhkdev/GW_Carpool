@@ -21,10 +21,13 @@
 
                             <div class="row d-flex justify-content-center mt-2 mb-5">
                                 <h2 class="d-flex justify-content-center">Delete Event</h2>
+                                <h4 class="d-flex justify-content-center">Loggedin User id: {{user.id}}</h4>
                                 <h4 class="d-flex justify-content-center">Schedule owner id: {{schedule.owner.id}}</h4>
                                 <h4 class="d-flex justify-content-center">Schedule id: {{schedule.pk}}</h4>
                             </div>
                             
+                            {% if schedule.owner.id == user.id %}
+
                             <br/><br/>
                             <div class="row d-flex justify-content-center mt-2 mb-5">
                                 <h3 class="d-flex justify-content-center">Delete this event on &nbsp <strong>{{ schedule.day }} at {{ schedule.pickup_time }}</strong> ? </h3>
@@ -40,6 +43,12 @@
                                     </div>
                                 </div>
                             </form>
+
+                            {% else %}
+
+                            <h4 class="d-flex justify-content-center">You are not authorized to delete this schedule</h4>
+
+                            {% endif %}
 
                         </div>
 

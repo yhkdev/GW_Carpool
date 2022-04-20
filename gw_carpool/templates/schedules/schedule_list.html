@@ -10,12 +10,16 @@
 
             <div class="container my-5">
                 <div class="d-flex justify-content-end">
+
+                    {% if owner_obj.id == user.id %}
                     <div>
                         <button type="button" class="btn btn-lg btn-primary" onclick="location.href='{% url 'schedule_new' %}'">
                             <i class="fas fa-plus"></i>&nbsp;&nbsp;
                             Add a Schedule
-                        </button>
+                        </button>                    
                     </div>
+                    {% endif %}
+                    
                 </div>
             </div>
 
@@ -26,11 +30,19 @@
                         <div class="container-fluid my-5">
 
                             <div class="row d-flex justify-content-center">
-                                <h2 class="d-flex justify-content-center">My Schedule</h2>
+                                <h2 class="d-flex justify-content-center">
+                                    {% if owner_obj.id == user.id %}
+                                        My Schedule
+                                    {% else %}
+                                        {{owner_obj.first_name}} {{owner_obj.last_name}}'s Schedule
+                                    {% endif %}
+                                </h2>
                             </div>
 
                             <div class="row d-flex justify-content-center">
                                 <h4 class="d-flex justify-content-center">Loggedin User id: {{user.id}}</h4>
+                                <h4 class="d-flex justify-content-center"> owner_id (from url path): {{owner_obj.id}}</h4>
+                                <h4 class="d-flex justify-content-center"> owner_fullname: {{owner_obj.first_name}} {{owner_obj.last_name}}</h4>
                             </div>
                             
                             <div class="row g-0">
@@ -42,14 +54,17 @@
                                             <th>To</th>
                                             <th>Day</th>
                                             <th>Pick-up Time</th>
+                                            {% if owner_obj.id == user.id %}
                                             <th></th>
+                                            {% endif %} 
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         {% if object_list %}
+
                                             {% for schedule in object_list %}
-                                                {% if user.id == schedule.owner.id%}
+                                                {% if owner_obj.id == user.id %}
                                                 <tr>
                                                     <td>{{ schedule.From }}</td>
                                                     <td>{{ schedule.to }}</td>
@@ -60,23 +75,16 @@
                                                         <button type="button" class="btn btn-sm btn-danger ml-1 px-2 py-1"><i class="fas fa-trash-alt" onclick="location.href='{% url 'schedule_delete' schedule.pk %}'"></i></button>
                                                     </td>
                                                 </tr>
-
-{% comment %}
-                                                {% elif user.id != schedule.owner.id%}
+                                                {% else %}
                                                 <tr>
                                                     <td>{{ schedule.From }}</td>
                                                     <td>{{ schedule.to }}</td>
                                                     <td>{{ schedule.day }}</td>
                                                     <td>{{ schedule.pickup_time }}</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-sm btn-success mr-1 px-2 py-1"><i class="fas fa-edit" onclick="location.href='{% url 'schedule_edit' schedule.pk %}'"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-danger ml-1 px-2 py-1"><i class="fas fa-trash-alt" onclick="location.href='{% url 'schedule_delete' schedule.pk %}'"></i></button>
-                                                    </td>
                                                 </tr>
- {% endcomment %}
-
-                                                {% endif %}
+                                                {% endif %} 
                                             {% endfor %}
+
                                         {% else %}
                                             No schedules detected
                                         {% endif %}
