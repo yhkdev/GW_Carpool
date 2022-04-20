@@ -40,13 +40,13 @@ class Schedule(models.Model):
     owner = models.ForeignKey(Account, on_delete=models.CASCADE, default=get_current_user) # models.CASCADE = delete all schedule related to the deleted User
     From = models.CharField(max_length=10, choices=destinations)
     to = models.CharField(max_length=10, choices=destinations)
-    day = models.CharField(max_length=10, choices=day_of_the_week) # add choices=state_choices to enable dropdown menu in admin area user edit. 
-    # But this cause problem getting value from website user registration
+    day = models.CharField(max_length=10, choices=day_of_the_week) # add choices=state_choices to enable dropdown menu in admin area user edit.
     pickup_time = models.TimeField()
+
     def __str__(self):
         # This is what shows as each row's name when you look from django admin db
         return self.day + " : " + self.From + " to " + self.to
 
     def get_absolute_url(self):
-        return reverse("schedule")
+        return reverse("schedule", kwargs={"pk": self.owner})
     

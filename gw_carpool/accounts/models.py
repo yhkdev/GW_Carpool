@@ -59,7 +59,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     objects = MyAccountManager()
 
     def __str__(self):
-        return str(self.email)
+        return str(self.pk)
 
 # class MyAccountManager(BaseUserManager):
 #     def create_user(self, email, first_name, last_name, password=None, **other_fields):

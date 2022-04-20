@@ -28,38 +28,10 @@ class ScheduleEditView(UpdateView):
 class ScheduleDeleteView(DeleteView):
     model = Schedule
     template_name = 'schedules/schedule_delete.html'
-    success_url = reverse_lazy('schedule')
 
+    # Below doesn't work if you want to reverse to a view/url with variable (i.e. <int:pk>)
+    # success_url = lazy_reverse("schedule")
 
-# Note: replace 'schedule.html' in index() or schedule() methods at some point!!!  
-
-# def index(request):
-#     user_schedules = Schedule.objects.all()
-
-#     context = {
-#         'schedules': user_schedules
-#     }
-
-#     return render(request, 'schedules/schedule.html', context)
-
-
-# def schedule(request):
-#     # user_accounts = Account.objects.all()
-
-#     # Craete accounts object, and define'accounts.full_name' to be used in html jinja
-#     user_schedules = Schedule
-
-#     context = {
-#         'schedules': user_schedules
-#     }
-
-#     return render(request, 'schedules/schedule.html', context)
-
-
-# def schedule_new(request):
-#     return render(request, 'schedules/schedule_new.html')
-    
-# def schedule_edit(request):
-#     return render(request, 'schedules/schedule_edit.html')
-
-
+    # Use this to pass owner_id to urls for DeleteView
+    # Source: https://docs.djangoproject.com/en/4.0/ref/class-based-views/mixins-editing/#django.views.generic.edit.DeletionMixin.success_url
+    success_url = "/schedules/{owner_id}"
