@@ -19,7 +19,13 @@
                         <div class="container my-5">
 
                             <div class="row d-flex justify-content-center border-bottom pb-3">
-                                <h2 class="d-flex justify-content-center">Find a Driver / Rider</h2>
+                                <h2 class="d-flex justify-content-center">Find a 
+                                    {% if user.is_driver %}
+                                    Rider
+                                    {% else %}
+                                    Driver
+                                    {% endif %}
+                                </h2>
                             </div>
 
                             <div class="row g-0">
@@ -41,7 +47,7 @@
 
                                         {% if accounts %}
                                             {% for account in accounts %}
-                                                {% if not account.is_superuser %}
+                                                {% if not account.is_superuser and account.pk != user.pk and account.is_driver != user.is_driver %}
                                                 <tr>
                                                     <td>
                                                         <a class="btn btn-link" href="{% url 'schedule' account.pk %}">{{ account.full_name }}</a>

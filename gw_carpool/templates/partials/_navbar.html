@@ -24,7 +24,13 @@
                 {% if user.is_authenticated %}
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'findride' %}">Find a Driver / Rider</a>
+                    <a class="nav-link" href="{% url 'findride' %}">Find a 
+                        {% if user.is_driver %}
+                        Rider
+                        {% else %}
+                        Driver
+                        {% endif %}
+                    </a>
                 </li>
 
                 <li class="nav-item">
