@@ -1,5 +1,7 @@
 {% extends 'base.html' %} 
 
+{% load accounts_tags %}
+
 {% block content %}
 
     <body>
@@ -30,6 +32,7 @@
                                             <th>Driver</th>
                                             <th>Email</th>
                                             <th>State</th>
+                                            <th>Distance</th>
                                         </tr>
 
                                     </thead>
@@ -49,6 +52,7 @@
                                                         </a>
                                                     </td>
                                                     <td>{{ account.state }}</td>
+                                                    <td>{{ account.distance.mi | round_distance }} miles</td>
                                                 </tr>
                                                 {% endif %}
                                             {% endfor %}

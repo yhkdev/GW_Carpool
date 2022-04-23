@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.gis.db.models.functions import Distance
 from django.db.models import Value
 from django.db.models.functions import Concat
 from django.shortcuts import redirect, render
@@ -90,9 +91,18 @@ def profile(request):
 
 def findride(request):
     # user_accounts = Account.objects.all()
+    user_loc_point = request.user.location
+    print("user_loc_point: " + user_loc_point)
 
-    # Craete accounts object, and define'accounts.full_name' to be used in html jinja
-    user_accounts = Account.objects.annotate(full_name=Concat("first_name", Value(" "), "last_name"))
+    # Create accounts object, and define'accounts.full_name' to be used in html jinja; calculate and order by distance to others
+    user_accounts = Account.objects.annotate(
+        full_name=Concat("first_name", Value(" "), "last_name"),
+        distance=Distance("location", user_loc_point)
+        ).order_by('distance')
+
+
+
+    # print(user_accounts.distance)
 
     context = {
         'accounts': user_accounts
