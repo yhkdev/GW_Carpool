@@ -1,6 +1,12 @@
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
                                         PermissionsMixin)
-from django.db import models
+from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import Distance
+from geopy.extra.rate_limiter import RateLimiter
+from geopy.geocoders import Nominatim
+
+# from django.db import models
 
 # Create your models here.
 
@@ -35,6 +41,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     #     ('3', 'MD')
     # )
 
+
     # User fields
     email = models.EmailField('email', unique=True)
     first_name = models.CharField(max_length=100)
@@ -45,6 +52,42 @@ class Account(AbstractBaseUser, PermissionsMixin):
     state = models.CharField(max_length=100, blank=True) # add choices=state_choices to enable dropdown menu in admin area user edit. But this cause problem getting value from website user registration
     zip_code = models.CharField(max_length=5, blank=True)
     is_driver = models.BooleanField(default=False)
+    
+    # location = models.PointField(geography=True, default=Point(0.0, 0.0))
+    location = models.PointField(geography=True, blank=True, null=True)
+    # address = u'%s %s %s %s %s %s' % (self.a2, self.a3, 
+    
+    def save(self, *args, **kwargs):
+        """
+            Create Model field (i.e. location) based on other fields
+            Source: https://stackoverflow.com/questions/22157437/model-field-based-on-other-fields
+            Source if using Google API: https://stackoverflow.com/questions/58468346/geocoding-with-geopy-and-importexport-in-django
+        """
+
+
+        address = ", ".join([self.street_address, self.city, self.state, self.zip_code])
+        print(address)
+
+        # Prepare geocoder API
+        nominatim_obj = Nominatim(user_agent = 'gwcarpool')
+        geocode_obj = nominatim_obj.geocode(address)
+
+        # Get Coordinate from address
+        if geocode_obj:
+            latitude = geocode_obj.latitude
+            longitude = geocode_obj.longitude
+            self.location = Point(longitude, latitude)
+            print(self.location)
+        # geocoder = RateLimiter(nominatim_obj.geocode, min_delay_seconds=1)
+
+        super(Account, self).save(*args, **kwargs) # Call the "real" save() method.
+
+    # User fields: Get latitude & longitude using address
+    # address = ", ".join([street_address, city, state, zip_code])
+    # location = geocoder.geocode(address)
+    # lat = location.latitude
+    # long = location.longitude
+
 
     # Required fields for django custom form
     is_staff = models.BooleanField(default=False)

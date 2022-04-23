@@ -1,5 +1,5 @@
-from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.gis import admin
 
 from .forms import CustomUserChangeForm, CustomUserCreationForm
 from .models import Account
@@ -13,7 +13,7 @@ class CustomUserAdmin(UserAdmin):
     list_display = ('email', 'first_name', 'last_name', 'phone', 'is_driver', 'is_staff', 'is_active', 'is_superuser')
     list_filter = ('email', 'first_name', 'last_name', 'phone', 'is_driver', 'is_staff', 'is_active','is_superuser')
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'first_name', 'last_name', 'phone', 'street_address', 'city', 'state', 'zip_code', 'is_driver')}),
+        (None, {'fields': ('email', 'password', 'first_name', 'last_name', 'phone', 'street_address', 'city', 'state', 'zip_code', 'location', 'is_driver')}),
         ('Permissions', {'fields': ('is_staff', 'is_active', 'is_superuser')}),
     )
     add_fieldsets = (
