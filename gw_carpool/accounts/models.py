@@ -47,10 +47,10 @@ class Account(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=100, blank=True)
-    street_address = models.CharField(max_length=100, blank=True)
-    city = models.CharField(max_length=100, blank=True)
-    state = models.CharField(max_length=100, blank=True) # add choices=state_choices to enable dropdown menu in admin area user edit. But this cause problem getting value from website user registration
-    zip_code = models.CharField(max_length=5, blank=True)
+    street_address = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100) # add choices=state_choices to enable dropdown menu in admin area user edit. But this cause problem getting value from website user registration
+    zip_code = models.CharField(max_length=5)
     is_driver = models.BooleanField(default=False)
     
     # location = models.PointField(geography=True, default=Point(0.0, 0.0))
