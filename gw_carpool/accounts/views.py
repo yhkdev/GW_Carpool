@@ -92,7 +92,7 @@ def profile(request):
 def findride(request):
     # user_accounts = Account.objects.all()
     user_loc_point = request.user.location
-    print("user_loc_point: " + user_loc_point)
+    # print("user_loc_point: " + user_loc_point)
 
     # Create accounts object, and define'accounts.full_name' to be used in html jinja; calculate and order by distance to others
     user_accounts = Account.objects.annotate(
