@@ -68,7 +68,8 @@ class Account(AbstractBaseUser, PermissionsMixin):
         address = ", ".join([self.street_address, self.city, self.state, self.zip_code])
         print(address)
 
-        # Prepare geocoder API
+        # Prepare geocoder API (Geopy -> Nominatism)
+        # 'Nominatism' is open-source geocoding API
         nominatim_obj = Nominatim(user_agent = 'gwcarpool')
         geocode_obj = nominatim_obj.geocode(address)
 
@@ -81,12 +82,6 @@ class Account(AbstractBaseUser, PermissionsMixin):
         # geocoder = RateLimiter(nominatim_obj.geocode, min_delay_seconds=1)
 
         super(Account, self).save(*args, **kwargs) # Call the "real" save() method.
-
-    # User fields: Get latitude & longitude using address
-    # address = ", ".join([street_address, city, state, zip_code])
-    # location = geocoder.geocode(address)
-    # lat = location.latitude
-    # long = location.longitude
 
 
     # Required fields for django custom form
