@@ -3,9 +3,11 @@ astroid==2.9.3
 backports.zoneinfo==0.2.1
 Django==4.0.3
 django-crum==0.7.9
+django-dotenv==1.4.2
 flake8==4.0.1
 geographiclib==1.52
 geopy==2.2.0
+gunicorn==20.1.0
 isort==5.10.1
 lazy-object-proxy==1.7.1
 mccabe==0.6.1
