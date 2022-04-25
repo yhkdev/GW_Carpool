@@ -9,5 +9,6 @@ venv
 /static
 .vscode
 .DS_Store
+/.DS_Store
 .env
 gwcarpool.yaml
